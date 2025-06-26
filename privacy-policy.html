@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de Confidentialité - PatrimoniScore</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .developer-info {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .developer-info strong {
+            color: #495057;
+        }
+
+        .last-updated {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #1976d2;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h3 {
+            color: #495057;
+            font-size: 1.2rem;
+            margin: 20px 0 10px 0;
+        }
+
+        .section p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .data-table th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: #f1f3f4;
+        }
+
+        .data-table tr:hover {
+            background: #e3f2fd;
+        }
+
+        .contact-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .contact-box h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .contact-box p {
+            color: #856404;
+            margin-bottom: 5px;
+        }
+
+        .rights-section {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .rights-section h3 {
+            color: #155724;
+            margin-bottom: 15px;
+        }
+
+        .rights-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .rights-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .rights-list li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            color: #155724;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
+            color: #666;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .navigation {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .navigation a {
+            display: block;
+            color: #667eea;
+            text-decoration: none;
+            padding: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        .navigation a:hover {
+            color: #764ba2;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+
+            .navigation {
+                position: static;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .data-table {
+                font-size: 0.9rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <a href="#collecte">Collecte</a>
+        <a href="#utilisation">Utilisation</a>
+        <a href="#partage">Partage</a>
+        <a href="#securite">Sécurité</a>
+        <a href="#droits">Vos Droits</a>
+        <a href="index.html">Suppression Compte</a>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo">PatrimoniScore</div>
+            <p class="subtitle">Politique de Confidentialité</p>
+        </div>
+
+        <div class="developer-info">
+            <strong>Développeur :</strong> PatrimoniScore Team<br>
+            <strong>Application :</strong> PatrimoniScore - Gestion de Patrimoine<br>
+            <strong>Version :</strong> 1.0
+        </div>
+
+        <div class="last-updated">
+            <strong>Dernière mise à jour :</strong> 15 Décembre 2024<br>
+            <strong>Entrée en vigueur :</strong> 15 Décembre 2024
+        </div>
+
+        <div class="section">
+            <h2>📋 Introduction</h2>
+            <p>PatrimoniScore ("nous", "notre", "nos") s'engage à protéger votre vie privée. Cette politique de confidentialité explique comment nous collectons, utilisons, partageons et protégeons vos informations personnelles lorsque vous utilisez notre application mobile et nos services.</p>
+            
+            <p>En utilisant PatrimoniScore, vous acceptez les pratiques décrites dans cette politique de confidentialité. Si vous n'acceptez pas cette politique, veuillez ne pas utiliser notre application.</p>
+        </div>
+
+        <div class="section" id="collecte">
+            <h2>🔍 Collecte des Informations</h2>
+            
+            <h3>Informations que vous nous fournissez :</h3>
+            <ul>
+                <li><strong>Informations de compte :</strong> Nom, prénom, adresse email, numéro de téléphone</li>
+                <li><strong>Informations de profil :</strong> Date de naissance, adresse, situation financière</li>
+                <li><strong>Données financières :</strong> Revenus, dépenses, investissements, épargne</li>
+                <li><strong>Préférences :</strong> Objectifs financiers, tolérance au risque</li>
+                <li><strong>Communications :</strong> Messages, demandes de support</li>
+            </ul>
+
+            <h3>Informations collectées automatiquement :</h3>
+            <ul>
+                <li><strong>Données d'utilisation :</strong> Pages visitées, fonctionnalités utilisées, temps passé</li>
+                <li><strong>Données techniques :</strong> Version de l'app, système d'exploitation, identifiant unique</li>
+                <li><strong>Données de localisation :</strong> Si vous activez cette fonctionnalité</li>
+                <li><strong>Cookies et technologies similaires :</strong> Pour améliorer l'expérience utilisateur</li>
+            </ul>
+        </div>
+
+        <div class="section" id="utilisation">
+            <h2>🎯 Utilisation des Informations</h2>
+            
+            <p>Nous utilisons vos informations pour :</p>
+            <ul>
+                <li><strong>Fournir nos services :</strong> Gestion de patrimoine, conseils financiers, analyses</li>
+                <li><strong>Personnaliser l'expérience :</strong> Recommandations adaptées à votre profil</li>
+                <li><strong>Améliorer nos services :</strong> Développement de nouvelles fonctionnalités</li>
+                <li><strong>Communication :</strong> Support client, notifications importantes</li>
+                <li><strong>Sécurité :</strong> Protection contre la fraude et les abus</li>
+                <li><strong>Conformité légale :</strong> Respect des obligations réglementaires</li>
+            </ul>
+        </div>
+
+        <div class="section" id="partage">
+            <h2>🤝 Partage des Informations</h2>
+            
+            <h3>Nous ne vendons jamais vos données personnelles.</h3>
+            
+            <p>Nous pouvons partager vos informations dans les cas suivants :</p>
+            <ul>
+                <li><strong>Avec votre consentement :</strong> Si vous nous autorisez explicitement</li>
+                <li><strong>Prestataires de services :</strong> Partenaires techniques sous contrat strict</li>
+                <li><strong>Obligations légales :</strong> Si requis par la loi ou autorités compétentes</li>
+                <li><strong>Protection de nos droits :</strong> Pour défendre nos droits légitimes</li>
+            </ul>
+
+            <h3>Prestataires de services :</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Finalité</th>
+                        <th>Données partagées</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hébergement</td>
+                        <td>Stockage sécurisé</td>
+                        <td>Données de compte</td>
+                    </tr>
+                    <tr>
+                        <td>Analytics</td>
+                        <td>Amélioration du service</td>
+                        <td>Données d'utilisation anonymisées</td>
+                    </tr>
+                    <tr>
+                        <td>Support client</td>
+                        <td>Assistance utilisateur</td>
+                        <td>Informations de contact</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section" id="securite">
+            <h2>🔒 Sécurité des Données</h2>
+            
+            <p>Nous mettons en œuvre des mesures de sécurité appropriées pour protéger vos informations :</p>
+            <ul>
+                <li><strong>Chiffrement :</strong> Données chiffrées en transit et au repos</li>
+                <li><strong>Accès restreint :</strong> Accès limité aux employés autorisés</li>
+                <li><strong>Surveillance :</strong> Monitoring continu des systèmes</li>
+                <li><strong>Sauvegardes :</strong> Sauvegardes sécurisées régulières</li>
+                <li><strong>Formation :</strong> Formation du personnel à la sécurité</li>
+            </ul>
+
+            <p><strong>Durée de conservation :</strong></p>
+            <ul>
+                <li><strong>Données de compte :</strong> Tant que votre compte est actif</li>
+                <li><strong>Données de facturation :</strong> 7 ans (obligation légale)</li>
+                <li><strong>Logs de sécurité :</strong> 12 mois</li>
+                <li><strong>Données supprimées :</strong> 30 jours après demande de suppression</li>
+            </ul>
+        </div>
+
+        <div class="section" id="droits">
+            <h2>⚖️ Vos Droits (RGPD)</h2>
+            
+            <div class="rights-section">
+                <h3>En tant qu'utilisateur européen, vous avez les droits suivants :</h3>
+                <ul class="rights-list">
+                    <li><strong>Droit d'accès :</strong> Demander une copie de vos données personnelles</li>
+                    <li><strong>Droit de rectification :</strong> Corriger des données inexactes</li>
+                    <li><strong>Droit à l'effacement :</strong> Demander la suppression de vos données</li>
+                    <li><strong>Droit à la portabilité :</strong> Recevoir vos données dans un format structuré</li>
+                    <li><strong>Droit d'opposition :</strong> Vous opposer au traitement de vos données</li>
+                    <li><strong>Droit de limitation :</strong> Limiter le traitement de vos données</li>
+                    <li><strong>Droit de retrait :</strong> Retirer votre consentement à tout moment</li>
+                </ul>
+            </div>
+
+            <p>Pour exercer vos droits, contactez-nous à l'adresse email ci-dessous. Nous répondrons dans un délai maximum de 30 jours.</p>
+        </div>
+
+        <div class="section">
+            <h2>🍪 Cookies et Technologies Similaires</h2>
+            
+            <p>Nous utilisons des cookies et technologies similaires pour :</p>
+            <ul>
+                <li>Améliorer l'expérience utilisateur</li>
+                <li>Analyser l'utilisation de l'application</li>
+                <li>Personnaliser le contenu</li>
+                <li>Assurer la sécurité</li>
+            </ul>
+
+            <p>Vous pouvez contrôler l'utilisation des cookies dans les paramètres de votre appareil.</p>
+        </div>
+
+        <div class="section">
+            <h2>🌍 Transferts Internationaux</h2>
+            
+            <p>Vos données peuvent être transférées et traitées dans des pays autres que votre pays de résidence. Nous nous assurons que ces transferts respectent les exigences du RGPD et mettons en place des garanties appropriées.</p>
+        </div>
+
+        <div class="section">
+            <h2>👶 Protection des Mineurs</h2>
+            
+            <p>Notre application n'est pas destinée aux utilisateurs de moins de 18 ans. Nous ne collectons pas sciemment d'informations personnelles auprès d'enfants. Si vous êtes parent et pensez que votre enfant nous a fourni des informations, contactez-nous immédiatement.</p>
+        </div>
+
+        <div class="contact-box">
+            <h3>📞 Contact et Questions</h3>
+            <p><strong>Email :</strong> privacy@patrimoniscore.com</p>
+            <p><strong>Support :</strong> support@patrimoniscore.com</p>
+            <p><strong>Délai de réponse :</strong> Maximum 30 jours</p>
+            <p><strong>Délégué à la protection des données :</strong> dpo@patrimoniscore.com</p>
+        </div>
+
+        <div class="section">
+            <h2>📝 Modifications de cette Politique</h2>
+            
+            <p>Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. Nous vous informerons de tout changement significatif par email ou via l'application. La date de dernière mise à jour est indiquée en haut de cette page.</p>
+        </div>
+
+        <div class="footer">
+            <p><strong>PatrimoniScore Team</strong> - Protection de votre vie privée</p>
+            <p><a href="index.html">Demande de suppression de compte</a> | <a href="#top">Retour en haut</a></p>
+            <p>Conforme au RGPD et aux exigences Google Play Store</p>
+        </div>
+    </div>
+
+    <script>
+        // Navigation fluide
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Retour en haut
+        document.querySelector('a[href="#top"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html> 
