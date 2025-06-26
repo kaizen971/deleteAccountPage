@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de Suppression de Compte - PatrimoniScore</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 700px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .developer-info {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .developer-info strong {
+            color: #495057;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .warning-icon {
+            color: #f39c12;
+            font-size: 1.2rem;
+        }
+
+        .procedure-section {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .procedure-section h3 {
+            color: #1976d2;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .procedure-steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .procedure-steps li {
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .procedure-steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #1976d2;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .data-section {
+            background: #f3e5f5;
+            border: 1px solid #e1bee7;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .data-section h3 {
+            color: #7b1fa2;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .data-category {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 4px solid #7b1fa2;
+        }
+
+        .data-category h4 {
+            color: #7b1fa2;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .data-category ul {
+            list-style: none;
+            font-size: 0.85rem;
+        }
+
+        .data-category li {
+            margin-bottom: 4px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .data-category li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #7b1fa2;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: #155724;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: #721c24;
+            margin-top: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .retention-info {
+            background: #fff8e1;
+            border: 1px solid #ffecb3;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">PatrimoniScore</div>
+            <p class="subtitle">Demande de Suppression de Compte</p>
+        </div>
+
+        <div class="developer-info">
+            <strong>Développeur :</strong> PatrimoniScore Team<br>
+            <strong>Application :</strong> PatrimoniScore - Gestion de Patrimoine
+        </div>
+
+        <div class="warning-box">
+            <span class="warning-icon">⚠️</span>
+            <div>
+                <strong>Attention :</strong> La suppression de votre compte est irréversible. 
+                Toutes vos données personnelles seront définitivement supprimées.
+            </div>
+        </div>
+
+        <div class="procedure-section">
+            <h3>📋 Procédure de Suppression de Compte</h3>
+            <ol class="procedure-steps">
+                <li>Remplissez le formulaire ci-dessous avec vos informations exactes</li>
+                <li>Confirmez que vous souhaitez supprimer définitivement votre compte</li>
+                <li>Sauvegardez vos données importantes avant la suppression</li>
+                <li>Soumettez votre demande - vous recevrez un email de confirmation</li>
+                <li>Notre équipe traitera votre demande sous 30 jours maximum</li>
+                <li>Vous recevrez un email final confirmant la suppression de vos données</li>
+            </ol>
+        </div>
+
+        <div class="data-section">
+            <h3>🗂️ Données Supprimées et Conservées</h3>
+            <div class="data-grid">
+                <div class="data-category">
+                    <h4>✅ Données Supprimées (30 jours)</h4>
+                    <ul>
+                        <li>Adresse email</li>
+                        <li>Mot de passe</li>
+                        <li>Nom et prénom</li>
+                        <li>Numéro de téléphone</li>
+                        <li>Données de profil utilisateur</li>
+                        <li>Historique des connexions</li>
+                        <li>Préférences personnalisées</li>
+                    </ul>
+                </div>
+                <div class="data-category">
+                    <h4>📊 Données Conservées (Légal)</h4>
+                    <ul>
+                        <li>Données de facturation (7 ans)</li>
+                        <li>Logs de sécurité (12 mois)</li>
+                        <li>Données anonymisées (statistiques)</li>
+                        <li>Conformité réglementaire</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="retention-info">
+            <strong>⏰ Durée de Conservation :</strong> 
+            Les données personnelles sont supprimées dans un délai maximum de 30 jours après validation de votre demande. 
+            Certaines données peuvent être conservées plus longtemps pour des obligations légales ou de sécurité.
+        </div>
+
+        <form id="deleteAccountForm">
+            <div class="form-group">
+                <label for="email">Adresse email du compte *</label>
+                <input type="email" id="email" name="email" required 
+                       placeholder="votre.email@exemple.com">
+            </div>
+
+            <div class="form-group">
+                <label for="fullName">Nom complet *</label>
+                <input type="text" id="fullName" name="fullName" required 
+                       placeholder="Votre nom complet">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Numéro de téléphone (optionnel)</label>
+                <input type="tel" id="phone" name="phone" 
+                       placeholder="+33 6 12 34 56 78">
+            </div>
+
+            <div class="form-group">
+                <label for="reason">Raison de la suppression *</label>
+                <select id="reason" name="reason" required>
+                    <option value="">Sélectionnez une raison</option>
+                    <option value="service_unsatisfactory">Service non satisfaisant</option>
+                    <option value="privacy_concerns">Préoccupations de confidentialité</option>
+                    <option value="no_longer_needed">Plus besoin du service</option>
+                    <option value="technical_issues">Problèmes techniques</option>
+                    <option value="gdpr_request">Demande RGPD</option>
+                    <option value="other">Autre raison</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message (optionnel)</label>
+                <textarea id="message" name="message" 
+                          placeholder="Décrivez brièvement pourquoi vous souhaitez supprimer votre compte. Vos commentaires nous aident à améliorer notre service."></textarea>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="confirmDelete" name="confirmDelete" required>
+                <label for="confirmDelete">
+                    Je confirme que je souhaite supprimer définitivement mon compte PatrimoniScore 
+                    et que je comprends que cette action est irréversible.
+                </label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="dataBackup" name="dataBackup">
+                <label for="dataBackup">
+                    J'ai sauvegardé toutes les données importantes de mon compte.
+                </label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="gdprConsent" name="gdprConsent" required>
+                <label for="gdprConsent">
+                    Je confirme que cette demande de suppression est conforme au RGPD 
+                    et que j'ai le droit de demander la suppression de mes données.
+                </label>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                <span class="btn-text">Envoyer la demande de suppression</span>
+                <span class="loading">⏳ Envoi en cours...</span>
+            </button>
+        </form>
+
+        <div class="success-message" id="successMessage">
+            <h3>✅ Demande envoyée avec succès !</h3>
+            <p>Nous avons reçu votre demande de suppression de compte. 
+               Notre équipe va traiter votre demande dans un délai maximum de 30 jours. 
+               Vous recevrez un email de confirmation dans les 24h.</p>
+        </div>
+
+        <div class="error-message" id="errorMessage">
+            <h3>❌ Erreur lors de l'envoi</h3>
+            <p id="errorText">Une erreur s'est produite. Veuillez réessayer ou nous contacter directement.</p>
+        </div>
+
+        <div class="footer">
+            <p><strong>Contact :</strong> support@patrimoniscore.com</p>
+            <p><strong>Délai de traitement :</strong> Maximum 30 jours</p>
+            <p><strong>Conformité :</strong> RGPD et Google Play Store</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('deleteAccountForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const loading = submitBtn.querySelector('.loading');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Récupération des données du formulaire
+            const formData = new FormData(this);
+            const data = {
+                email: formData.get('email'),
+                fullName: formData.get('fullName'),
+                phone: formData.get('phone'),
+                reason: formData.get('reason'),
+                message: formData.get('message'),
+                confirmDelete: formData.get('confirmDelete') === 'on',
+                dataBackup: formData.get('dataBackup') === 'on',
+                gdprConsent: formData.get('gdprConsent') === 'on',
+                timestamp: new Date().toISOString(),
+                appName: 'PatrimoniScore',
+                developer: 'PatrimoniScore Team'
+            };
+
+            // Validation supplémentaire
+            if (!data.confirmDelete) {
+                showError('Vous devez confirmer la suppression de votre compte.');
+                return;
+            }
+
+            if (!data.gdprConsent) {
+                showError('Vous devez confirmer votre consentement RGPD.');
+                return;
+            }
+
+            // Affichage du loading
+            submitBtn.disabled = true;
+            btnText.style.display = 'none';
+            loading.style.display = 'block';
+            hideMessages();
+
+            try {
+                // Simulation d'envoi d'email (remplacez par votre logique d'envoi)
+                await sendDeleteRequest(data);
+                
+                // Succès
+                showSuccess();
+                this.reset();
+                
+            } catch (error) {
+                console.error('Erreur:', error);
+                showError('Erreur lors de l\'envoi de la demande. Veuillez réessayer.');
+            } finally {
+                // Restauration du bouton
+                submitBtn.disabled = false;
+                btnText.style.display = 'block';
+                loading.style.display = 'none';
+            }
+        });
+
+        async function sendDeleteRequest(data) {
+            // Simulation d'un délai réseau
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            // Ici, vous pouvez intégrer votre logique d'envoi d'email
+            // Par exemple, avec EmailJS, un service backend, ou une API
+            
+            // Pour l'exemple, on simule un succès
+            const success = Math.random() > 0.1; // 90% de chance de succès
+            
+            if (!success) {
+                throw new Error('Erreur de connexion');
+            }
+            
+            // Log des données (à remplacer par l'envoi réel)
+            console.log('Demande de suppression PatrimoniScore:', data);
+            
+            // Exemple d'intégration avec EmailJS (décommentez et configurez si nécessaire)
+            /*
+            try {
+                await emailjs.send(
+                    'YOUR_SERVICE_ID',
+                    'YOUR_TEMPLATE_ID',
+                    {
+                        to_email: 'support@patrimoniscore.com',
+                        from_email: data.email,
+                        from_name: data.fullName,
+                        phone: data.phone,
+                        reason: data.reason,
+                        message: data.message,
+                        timestamp: data.timestamp,
+                        app_name: data.appName,
+                        developer: data.developer,
+                        gdpr_consent: data.gdprConsent
+                    },
+                    'YOUR_USER_ID'
+                );
+            } catch (error) {
+                throw new Error('Erreur d\'envoi d\'email');
+            }
+            */
+        }
+
+        function showSuccess() {
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('errorMessage').style.display = 'none';
+        }
+
+        function showError(message) {
+            document.getElementById('errorText').textContent = message;
+            document.getElementById('errorMessage').style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+        }
+
+        function hideMessages() {
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'none';
+        }
+
+        // Validation en temps réel
+        document.getElementById('email').addEventListener('blur', function() {
+            const email = this.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (email && !emailRegex.test(email)) {
+                this.style.borderColor = '#dc3545';
+            } else {
+                this.style.borderColor = '#e1e5e9';
+            }
+        });
+
+        // Validation du numéro de téléphone
+        document.getElementById('phone').addEventListener('blur', function() {
+            const phone = this.value;
+            const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+            
+            if (phone && !phoneRegex.test(phone)) {
+                this.style.borderColor = '#dc3545';
+            } else {
+                this.style.borderColor = '#e1e5e9';
+            }
+        });
+    </script>
+</body>
+</html>
